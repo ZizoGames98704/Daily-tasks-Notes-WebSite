@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظم الحياة - Life Organizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="light-theme">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 id="app-title">منظم الحياة</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-section="tasks" id="nav-tasks-btn">
+                    <i data-lucide="check-square"></i>
+                    <span class="nav-text">المهام</span>
+                </button>
+                <button class="nav-item" data-section="notes" id="nav-notes-btn">
+                    <i data-lucide="notebook"></i>
+                    <span class="nav-text">الملاحظات</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="action-btn" id="theme-toggle">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                    <span id="theme-text">المظهر الداكن</span>
+                </button>
+                <button class="action-btn" id="lang-toggle">
+                    <i data-lucide="languages"></i>
+                    <span>English</span>
+                </button>
+                <button class="action-btn delete-all" id="clear-all-btn">
+                    <i data-lucide="trash-2"></i>
+                    <span id="clear-text">مسح الكل</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tasks Section -->
+            <section id="tasks-section" class="content-section active">
+                <div class="section-header">
+                    <h2 id="tasks-heading">المهام</h2>
+                    <div class="search-container">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="task-search" placeholder="بحث في المهام...">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="task-input" placeholder="ماذا يجب أن تفعل؟">
+                    <button id="add-task-btn"><i data-lucide="plus"></i></button>
+                </div>
+                <div id="tasks-list" class="items-list"></div>
+            </section>
+
+            <!-- Notes Section -->
+            <section id="notes-section" class="content-section">
+                <div class="section-header">
+                    <h2 id="notes-heading">الملاحظات</h2>
+                    <div class="search-container">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="note-search" placeholder="بحث في الملاحظات...">
+                    </div>
+                    <button class="primary-btn" id="open-note-modal">
+                        <i data-lucide="plus"></i> <span id="add-note-text">إضافة ملاحظة</span>
+                    </button>
+                </div>
+                <div id="notes-grid" class="notes-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Note Modal -->
+    <div id="note-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">إضافة ملاحظة</h3>
+            <input type="text" id="note-title-input" placeholder="عنوان الملاحظة">
+            <textarea id="note-content-input" placeholder="اكتب مذكراتك هنا..."></textarea>
+            <div class="modal-actions">
+                <button id="close-modal" class="secondary-btn">إلغاء</button>
+                <button id="save-note-btn" class="primary-btn">حفظ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
